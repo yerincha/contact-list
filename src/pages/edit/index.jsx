@@ -23,6 +23,7 @@ export default function Edit({ list, contact, setList }) {
         return contactItem;
       })
     );
+    alert("The Contact has been Edited!");
   };
 
   const handleCancelClick = (e) => {
@@ -57,6 +58,7 @@ export default function Edit({ list, contact, setList }) {
       </label>
       <input type="submit" value="Submit" />
       <input type="button" value="Cancel" onClick={handleCancelClick} />
+      <input type="button" value="Go Back To The List" onClick={() => navigate('/')} />
     </form>
   );
 }
