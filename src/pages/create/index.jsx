@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
-export default function Edit({list, contact, setList}) {
+export default function Edit({list, setList}) {
   const initialContact = {
     id: list[list.length - 1].id + 1,
     firstName: '',
@@ -23,6 +23,10 @@ export default function Edit({list, contact, setList}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setList([...list, newContact]);
+    alert("New Create has been Added!");
+    // update id for the next contact creation
+    initialContact.id += 1;
+    setNewContact(initialContact);
   };
 
   const handleCancelClick = (e) => {
