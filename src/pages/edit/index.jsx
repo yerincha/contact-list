@@ -25,6 +25,13 @@ export default function Edit({ list, contact, setList }) {
     );
   };
 
+  const handleCancelClick = (e) => {
+    e.preventDefault();
+    setEditedContact({
+      ...contact,
+    });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <label>
@@ -49,6 +56,7 @@ export default function Edit({ list, contact, setList }) {
         <input type="text" name="email" value={editedContact.email} onChange={handleChange} />
       </label>
       <input type="submit" value="Submit" />
+      <input type="button" value="Cancel" onClick={handleCancelClick} />
     </form>
   );
 }
