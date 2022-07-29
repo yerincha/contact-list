@@ -1,8 +1,9 @@
-import {confirmAlert} from 'react-confirm-alert';
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import ContactList from '../../components/ContactList';
 import Modal from '../../components/Modal';
+
 export default function Home({list, setList, contact, setSelectedContact}) {
   const navigate = useNavigate();
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -16,7 +17,7 @@ export default function Home({list, setList, contact, setSelectedContact}) {
 
   const handleDeleteTrue = () => {
     if (openDeleteModal) {
-      let filteredList = list.filter((item) => item.id !== contact.id);
+      const filteredList = list.filter((item) => item.id !== contact.id);
       setList(filteredList);
       setOpenDeleteModal(false);
     }
@@ -30,7 +31,9 @@ export default function Home({list, setList, contact, setSelectedContact}) {
       {openDeleteModal && (
         <Modal handleDeleteTrue={handleDeleteTrue} handleDeleteFalse={handleDeleteFalse} />
       )}
-      <button onClick={handleCreateClick}>Create New Contact</button>
+      <button type="button" onClick={handleCreateClick}>
+        Create New Contact
+      </button>
       <ContactList
         list={list}
         setSelectedContact={setSelectedContact}
@@ -39,3 +42,23 @@ export default function Home({list, setList, contact, setSelectedContact}) {
     </>
   );
 }
+Home.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  setList: PropTypes.func.isRequired,
+  contact: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+  }).isRequired,
+  setSelectedContact: PropTypes.func.isRequired,
+};
