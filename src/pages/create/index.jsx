@@ -23,7 +23,7 @@ export default function Edit({list, setList}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setList([...list, newContact]);
-    alert("New Create has been Added!");
+    alert('New Create has been Added!');
     // update id for the next contact creation
     initialContact.id += 1;
     setNewContact(initialContact);
@@ -36,19 +36,19 @@ export default function Edit({list, setList}) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <label htmlFor="a">
         First name
         <input type="text" name="firstName" value={newContact.firstName} onChange={handleChange} />
       </label>
-      <label>
+      <label htmlFor="a">
         Last name
         <input type="text" name="lastName" value={newContact.lastName} onChange={handleChange} />
       </label>
-      <label>
+      <label htmlFor="a">
         Phone
         <input type="text" name="phone" value={newContact.phone} onChange={handleChange} />
       </label>
-      <label>
+      <label htmlFor="a">
         Email
         <input type="text" name="email" value={newContact.email} onChange={handleChange} />
       </label>
