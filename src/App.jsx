@@ -9,7 +9,13 @@ import Create from './pages/create';
 
 function App() {
   const [list, setList] = useState(mockContactData);
-  const [selectedContact, setSelectedContact] = useState({});
+  const [selectedContact, setSelectedContact] = useState({
+    id: list[list.length - 1].id + 1,
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+  });
 
   return (
     <div className="contact-list">
