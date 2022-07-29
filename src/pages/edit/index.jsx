@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default function Edit({ list, contact, setList }) {
-  const [editedContact, setEditedContact] = useState({ ...contact });
+export default function Edit({list, contact, setList}) {
+  const [editedContact, setEditedContact] = useState({...contact});
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { value } = e.target;
+    const {value} = e.target;
     setEditedContact({
       ...editedContact,
       [e.target.name]: value,
@@ -23,7 +24,7 @@ export default function Edit({ list, contact, setList }) {
         return contactItem;
       })
     );
-    alert("The Contact has been Edited!");
+    alert('The Contact has been Edited!');
   };
 
   const handleCancelClick = (e) => {
@@ -35,7 +36,7 @@ export default function Edit({ list, contact, setList }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <label htmlFor="a">
         First name
         <input
           type="text"
@@ -44,15 +45,15 @@ export default function Edit({ list, contact, setList }) {
           onChange={handleChange}
         />
       </label>
-      <label>
+      <label htmlFor="a">
         Last name
         <input type="text" name="lastName" value={editedContact.lastName} onChange={handleChange} />
       </label>
-      <label>
+      <label htmlFor="a">
         Phone
         <input type="text" name="phone" value={editedContact.phone} onChange={handleChange} />
       </label>
-      <label>
+      <label htmlFor="a">
         Email
         <input type="text" name="email" value={editedContact.email} onChange={handleChange} />
       </label>
@@ -62,3 +63,23 @@ export default function Edit({ list, contact, setList }) {
     </form>
   );
 }
+
+Edit.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  setList: PropTypes.func.isRequired,
+  contact: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+  }).isRequired,
+};

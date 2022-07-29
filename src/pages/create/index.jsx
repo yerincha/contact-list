@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default function Edit({list, setList}) {
+export default function Create({list, setList}) {
   const initialContact = {
     id: list[list.length - 1].id + 1,
     firstName: '',
@@ -58,3 +59,15 @@ export default function Edit({list, setList}) {
     </form>
   );
 }
+Create.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  setList: PropTypes.func.isRequired,
+};
