@@ -1,33 +1,42 @@
 import './index.css';
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { confirmAlert } from 'react-confirm-alert'; 
 
 export default function ContactListEntry({item, setSelectedContact, handleOpenDeleteModal}) {
+  const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
-  const handleContentClick = (e, item) => {
+  const handleContentClick = (e, selected) => {
     e.preventDefault();
-    setSelectedContact(item);
+    setSelectedContact(selected);
     navigate('/edit');
   };
 
-  const handleDeleteClick = (e, item) => {
+  const handleDeleteClick = (e, selected) => {
     e.preventDefault();
     handleOpenDeleteModal();
-    setSelectedContact(item);
-  }
-    
+    setSelectedContact(selected);
+  };
+
+  const handleExpand = () => {
+    setExpanded(!expanded);
+  };
   return (
     <div className="data-card">
       <h3>
         {item.firstName} {item.lastName}
       </h3>
       <h4>{item.phone}</h4>
-      <p>{item.email}</p>
-      <button className="link-text" onClick={(e) => handleContentClick(e, item)}>
+      {expanded && <p>{item.email}</p>}
+      <button type="button" onClick={handleExpand}>
+        {expanded ? 'Show less' : 'View All Information'}
+      </button>
+
+      <button type="button" className="link-text" onClick={(e) => handleContentClick(e, item)}>
         Edit Contact
       </button>
-      <button className="link-text" onClick={(e) => handleDeleteClick(e, item)}>Delete Contact</button>
+      <button type="button" className="link-text" onClick={(e) => handleDeleteClick(e, item)}>
+        Delete Contact
+      </button>
     </div>
   );
 }
