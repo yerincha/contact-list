@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import ContactListEntry from './ContactListEntry';
 
 export default function ContactList({list, setSelectedContact, handleOpenDeleteModal}) {
@@ -16,3 +18,16 @@ export default function ContactList({list, setSelectedContact, handleOpenDeleteM
     </section>
   );
 }
+ContactList.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  handleOpenDeleteModal: PropTypes.func.isRequired,
+  setSelectedContact: PropTypes.func.isRequired,
+};

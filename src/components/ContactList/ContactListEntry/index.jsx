@@ -1,5 +1,7 @@
 import './index.css';
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+
 import {useNavigate} from 'react-router-dom';
 
 export default function ContactListEntry({item, setSelectedContact, handleOpenDeleteModal}) {
@@ -40,3 +42,14 @@ export default function ContactListEntry({item, setSelectedContact, handleOpenDe
     </div>
   );
 }
+ContactListEntry.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+  }).isRequired,
+  handleOpenDeleteModal: PropTypes.func.isRequired,
+  setSelectedContact: PropTypes.func.isRequired,
+};
