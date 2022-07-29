@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ContactListEntry from './ContctListEntry';
+import ContactListEntry from './ContactListEntry';
 
 export default function ContactList({list, setSelectedContact, handleOpenDeleteModal}) {
   return (
