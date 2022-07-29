@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
 import ContactListEntry from './ContctListEntry';
 
-export default function ContactList({list, setSelectedContact}) {
+export default function ContactList({list, setSelectedContact, handleOpenDeleteModal}) {
   return (
     <section className="page-contain">
       {list.map((item) => (
         <div key={item.id}>
-          <ContactListEntry key={item.id} item={item} setSelectedContact={setSelectedContact} />
+          <ContactListEntry
+            item={item}
+            setSelectedContact={setSelectedContact}
+            handleOpenDeleteModal={handleOpenDeleteModal}
+          />
         </div>
       ))}
     </section>

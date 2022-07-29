@@ -1,8 +1,9 @@
 import './index.css';
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert'; 
 
-export default function ContactListEntry({item, setSelectedContact}) {
+export default function ContactListEntry({item, setSelectedContact, handleOpenDeleteModal}) {
   const navigate = useNavigate();
   const handleContentClick = (e, item) => {
     e.preventDefault();
@@ -10,6 +11,12 @@ export default function ContactListEntry({item, setSelectedContact}) {
     navigate('/edit');
   };
 
+  const handleDeleteClick = (e, item) => {
+    e.preventDefault();
+    handleOpenDeleteModal();
+    setSelectedContact(item);
+  }
+    
   return (
     <div className="data-card">
       <h3>
@@ -20,7 +27,7 @@ export default function ContactListEntry({item, setSelectedContact}) {
       <button className="link-text" onClick={(e) => handleContentClick(e, item)}>
         Edit Contact
       </button>
-      <button className="link-text">Delete Contact</button>
+      <button className="link-text" onClick={(e) => handleDeleteClick(e, item)}>Delete Contact</button>
     </div>
   );
 }
