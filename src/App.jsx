@@ -9,21 +9,28 @@ import Create from './pages/create';
 
 function App() {
   const [list, setList] = useState(mockContactData);
-  const [seletedContact, setSelectedContact] = useState({});
+  const [selectedContact, setSelectedContact] = useState({});
 
   return (
     <div className="contact-list">
       <Router>
         <Routes>
-          <Route path="/" element={<Home list={list} setSelectedContact={setSelectedContact} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                list={list}
+                setList={setList}
+                contact={selectedContact}
+                setSelectedContact={setSelectedContact}
+              />
+            }
+          />
           <Route
             path="/edit"
-            element={<Edit list={list} contact={seletedContact} setList={setList} />}
+            element={<Edit list={list} contact={selectedContact} setList={setList} />}
           />
-          <Route
-            path="/create"
-            element={<Create list={list} setList={setList} />}
-          />
+          <Route path="/create" element={<Create list={list} setList={setList} />} />
         </Routes>
       </Router>
     </div>
