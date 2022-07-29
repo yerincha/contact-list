@@ -1,26 +1,32 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Edit({ contact }) {
-  const [editedContact, setEditedContact] = useState({
-    firstName: contact.firstName,
-    lastName: contact.lastName,
-    phone: contact.phone,
-    email: contact.email,
-  });
+export default function Edit({ list, contact, setList }) {
+  const [editedContact, setEditedContact] = useState({ ...contact });
 
-  function handleChange(e) {
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
     const { value } = e.target;
     setEditedContact({
       ...editedContact,
       [e.target.name]: value,
     });
-  }
-
-  const navigate = useNavigate();
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setList(
+      [...list].map((contactItem) => {
+        if (contactItem.id === editedContact.id) {
+          return editedContact;
+        }
+        return contactItem;
+      })
+    );
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         First name
         <input
@@ -42,6 +48,7 @@ export default function Edit({ contact }) {
         Email
         <input type="text" name="email" value={editedContact.email} onChange={handleChange} />
       </label>
+      <input type="submit" value="Submit" />
     </form>
   );
 }
