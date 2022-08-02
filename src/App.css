@@ -148,3 +148,74 @@ h4 {
   background-color: red;
   color: white;
 }
+
+/* CSS styling for Create and Edit page  */
+form {
+  width: 50%;
+  display: inline-block;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1.5em;
+  text-align: left;
+  display: block;
+}
+
+input[type='text'],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type='submit'] {
+  width: 100%;
+  font-weight: 600;
+  font-size: 2em;
+  border-color: #04aa6d;
+  color: #04aa6d;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type='submit']:hover {
+  background-color: #04aa6d;
+  color: white;
+}
+
+input[type='submit']:focus {
+  background-color: #04aa6d;
+  color: white;
+}
+
+input[type='submit']:disabled {
+  background-color: #ccc;
+  color: white;
+  border: none;
+}
+
+input[type='button'] {
+  width: 100%;
+  font-weight: 600;
+  font-size: 2em;
+  border-color: #e7e7e7;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type='button']:hover {
+  background-color: #e7e7e7;
+}
+
+input[type='button']:focus {
+  background-color: #e7e7e7;
+}
