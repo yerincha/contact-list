@@ -20,6 +20,7 @@ export default function Home({list, setList, contact, setSelectedContact}) {
       const filteredList = list.filter((item) => item.id !== contact.id);
       setList(filteredList);
       setOpenDeleteModal(false);
+      alert(`The Contact ${contact.firstName} ${contact.lastName} has been deleted!`);
     }
   };
 
@@ -29,10 +30,19 @@ export default function Home({list, setList, contact, setSelectedContact}) {
   return (
     <>
       {openDeleteModal && (
-        <Modal handleDeleteTrue={handleDeleteTrue} handleDeleteFalse={handleDeleteFalse} />
+        <Modal
+          contact={contact}
+          handleDeleteTrue={handleDeleteTrue}
+          handleDeleteFalse={handleDeleteFalse}
+        />
       )}
-      <button type="button" onClick={handleCreateClick}>
-        Create New Contact
+      <button
+        className="create-button"
+        type="button"
+        aria-labelledby="Create"
+        onClick={handleCreateClick}
+      >
+        <strong>Create New Contact</strong>
       </button>
       <ContactList
         list={list}
