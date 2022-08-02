@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Modal({contact, handleDeleteTrue, handleDeleteFalse}) {
+export default function DeleteModal({contact, handleDeleteTrue, handleDeleteFalse}) {
   return (
     <div className="modal">
       <div className="modal_box">
@@ -33,7 +33,7 @@ export default function Modal({contact, handleDeleteTrue, handleDeleteFalse}) {
     </div>
   );
 }
-Modal.propTypes = {
+DeleteModal.propTypes = {
   handleDeleteTrue: PropTypes.func.isRequired,
   handleDeleteFalse: PropTypes.func.isRequired,
   contact: PropTypes.shape({
