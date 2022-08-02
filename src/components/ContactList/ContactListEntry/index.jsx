@@ -1,4 +1,3 @@
-import './index.css';
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
@@ -27,16 +26,16 @@ export default function ContactListEntry({item, setSelectedContact, handleOpenDe
       <h3>
         {item.firstName} {item.lastName}
       </h3>
-      <h4>{item.phone}</h4>
-      {expanded && <p>{item.email}</p>}
-      <button type="button" onClick={handleExpand}>
+      <h4> Phone: {item.phone}</h4>
+      {expanded && <h4 className="email">Email: {item.email}</h4>}
+      <button type="button" aria-labelledby="expand" onClick={handleExpand}>
         {expanded ? 'Show less' : 'View All Information'}
       </button>
 
-      <button type="button" className="link-text" onClick={(e) => handleContentClick(e, item)}>
+      <button type="button" className="edit-contact" onClick={(e) => handleContentClick(e, item)}>
         Edit Contact
       </button>
-      <button type="button" className="link-text" onClick={(e) => handleDeleteClick(e, item)}>
+      <button type="button" className="delete-contact" onClick={(e) => handleDeleteClick(e, item)}>
         Delete Contact
       </button>
     </div>
