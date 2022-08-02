@@ -85,3 +85,20 @@ h4 {
 .email {
   margin: 0 0 1em;
 }
+
+/* delete button on card-grid */
+.delete-contact {
+  border-color: red;
+  color: red;
+  cursor: pointer;
+}
+
+.delete-contact:hover {
+  background-color: red;
+  color: white;
+}
+
+.delete-contact:focus {
+  background-color: red;
+  color: white;
+}
