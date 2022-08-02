@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ContactList from '../../components/ContactList';
-import Modal from '../../components/Modal';
+import ContactList from '../components/ContactList';
+import DeleteModal from '../components/DeleteModal';
 
 export default function Home({list, setList, contact, setSelectedContact}) {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ export default function Home({list, setList, contact, setSelectedContact}) {
   return (
     <>
       {openDeleteModal && (
-        <Modal
+        <DeleteModal
           contact={contact}
           handleDeleteTrue={handleDeleteTrue}
           handleDeleteFalse={handleDeleteFalse}
