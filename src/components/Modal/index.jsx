@@ -1,17 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Modal({handleDeleteTrue, handleDeleteFalse}) {
+export default function Modal({contact, handleDeleteTrue, handleDeleteFalse}) {
   return (
     <div className="modal">
       <div className="modal_box">
-        <p>You sure you wanna delete?</p>
-        <button type="button" className="modal_buttonCancel" onClick={handleDeleteFalse}>
-          Cancel
-        </button>
-        <button type="button" onClick={handleDeleteTrue} className="modal_buttoDelete">
-          Confirm
-        </button>
+        <h3>Are you sure?</h3>
+        <h4>
+          The contact of
+          <strong style={{color: 'blue'}}>{` ${contact.firstName} ${contact.lastName} `}</strong>
+          will be <strong style={{color: 'red'}}>deleted</strong>
+        </h4>
+        <div className="modal-button-container">
+          <button
+            type="button"
+            className="modal-button-cancel"
+            area-aria-label="Cancel"
+            onClick={handleDeleteFalse}
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            className="modal-button-delete"
+            area-aria-label="Delete"
+            onClick={handleDeleteTrue}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -19,4 +36,11 @@ export default function Modal({handleDeleteTrue, handleDeleteFalse}) {
 Modal.propTypes = {
   handleDeleteTrue: PropTypes.func.isRequired,
   handleDeleteFalse: PropTypes.func.isRequired,
+  contact: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+  }).isRequired,
 };
