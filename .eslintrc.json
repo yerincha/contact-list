@@ -21,6 +21,6 @@
         "react"
     ],
     "rules": {
-        "alert": "off"
+        "no-alert": "off"
     }
 }
