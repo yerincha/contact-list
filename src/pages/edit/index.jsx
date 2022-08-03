@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 export default function Edit({list, contact, setList}) {
   const [editedContact, setEditedContact] = useState({...contact});
   const [emptyInput, setEmptyInput] = useState(true);
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -15,6 +14,7 @@ export default function Edit({list, contact, setList}) {
       [e.target.name]: value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setList(

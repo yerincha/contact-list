@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-
 import {useNavigate} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function ContactListEntry({item, setSelectedContact, handleOpenDeleteModal}) {
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
+
   const handleContentClick = (e, selected) => {
     e.preventDefault();
     setSelectedContact(selected);
@@ -21,6 +21,7 @@ export default function ContactListEntry({item, setSelectedContact, handleOpenDe
   const handleExpand = () => {
     setExpanded(!expanded);
   };
+
   return (
     <div className="data-card">
       <h3>
