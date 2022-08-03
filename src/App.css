@@ -33,7 +33,28 @@ button:focus {
   background: #e7e7e7;
   transition: 0.7s;
 }
+/* CSS styling for create-button on home page */
+.create-button {
+  width: 50%;
+  border-color: #2196f3;
+  color: dodgerblue;
+  padding: 14px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 2em;
+  margin-left: 25%;
+  margin-right: 25%;
+}
 
+.create-button:hover {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.create-button:focus {
+  background-color: #2196f3;
+  color: white;
+}
 /* CSS styling for contact card grid list */
 .page-contain {
   display: grid;
@@ -179,6 +200,7 @@ input[type='submit'] {
   font-size: 2em;
   border-color: #04aa6d;
   color: #04aa6d;
+  background-color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border-radius: 4px;
