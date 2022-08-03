@@ -47,27 +47,27 @@ export default function Edit({list, contact, setList}) {
   return (
     <form onSubmit={handleSubmit}>
       <h1>Edit Existing Contact</h1>
-      <label htmlFor="a">
+      <label htmlFor="firstname">
         First name
         <input
           type="text"
-          name="firstName"
+          name="firstname"
           aria-labelledby="firstName"
           value={editedContact.firstName}
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="a">
+      <label htmlFor="lastname">
         Last name
         <input
           type="text"
-          name="lastName"
+          name="lastname"
           aria-labelledby="lastName"
           value={editedContact.lastName}
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="a">
+      <label htmlFor="phone">
         Phone
         <input
           type="text"
@@ -77,7 +77,7 @@ export default function Edit({list, contact, setList}) {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="a">
+      <label htmlFor="email">
         Email
         <input
           type="text"

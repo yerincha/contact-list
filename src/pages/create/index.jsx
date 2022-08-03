@@ -65,29 +65,29 @@ export default function Create({list, setList}) {
   return (
     <form onSubmit={handleSubmit}>
       <h1>Create New Contact</h1>
-      <label htmlFor="firstName">
+      <label htmlFor="firstname">
         First name
         <input
           type="text"
-          name="firstName"
+          name="firstname"
           aria-required="true"
           autoComplete="off"
           value={newContact.firstName}
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="lastName">
+      <label htmlFor="lastname">
         Last name
         <input
           type="text"
-          name="lastName"
+          name="lastname"
           aria-required="true"
           autoComplete="off"
           value={newContact.lastName}
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="phoneNumber">
+      <label htmlFor="phone">
         Phone
         <input
           type="text"
@@ -98,7 +98,7 @@ export default function Create({list, setList}) {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="emailAddress">
+      <label htmlFor="email">
         Email
         <input
           type="text"
