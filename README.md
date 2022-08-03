@@ -6,10 +6,9 @@
 
 An implementation of contacts list
 
-### Built With
 
-# Frontend Only
-* [Create React App](https://github.com/facebook/create-react-app): used to bootstrap this project.
+## Built With
+* [Create React App](https://github.com/facebook/create-react-app): Create React apps with no build configuration.
 * [React](https://reactjs.org/): Javascript library for building user interfaces 
 
 ## Getting Started
@@ -52,6 +51,7 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-After any contact edits have been performed and a submit or cancel action has been taken, the list should update to reflect any changes until you refresh the page or restart the application.<br />
+After any contact edits have been performed and a submit or cancel action has been taken, <br />
+the list should update to reflect any changes until you refresh the page or restart the application.<br />
 The contact list will be initialize with mock data if you refresh the page or restart the application.<br />
 You will also see any lint errors in the console.
