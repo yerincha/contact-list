@@ -8,9 +8,9 @@ import Edit from './pages/edit';
 import Create from './pages/create';
 
 function App() {
-  const [list, setList] = useState(mockContactData);
+  const [list, setList] = useState(mockContactData || []);
   const [selectedContact, setSelectedContact] = useState({
-    id: list[list.length - 1].id + 1,
+    id: list.length ? list[list.length - 1].id + 1 : 0,
     firstName: '',
     lastName: '',
     email: '',
