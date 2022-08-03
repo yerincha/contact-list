@@ -36,7 +36,7 @@ An implementation of contacts list
    ```sh
    npm install
    ```
-3. Run yarn start after installation and open `localhost:3000` on the browser
+3. Run npm start after installation and open `localhost:3000` on the browser
    ```sh
    npm start
    ```
@@ -52,6 +52,6 @@ npm start
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 After any contact edits have been performed and a submit or cancel action has been taken, <br />
-the list should update to reflect any changes until you refresh the page or restart the application.<br />
-The contact list will be initialize with mock data if you refresh the page or restart the application.<br />
+the list will be updated to reflect any changes until you refresh the page or restart the application.<br /><br />
+The contact list will be initialize with mock data if you refresh the page or restart the application.<br /><br />
 You will also see any lint errors in the console.
