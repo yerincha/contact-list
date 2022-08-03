@@ -4,7 +4,7 @@
 
 # Contact List
 
-Collaboration tool for connecting creators and editors.
+An implementation of contacts list
 
 ### Built With
 
@@ -50,7 +50,6 @@ In the project directory, you can run:
 npm start
 ```
 
-Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 After any contact edits have been performed and a submit or cancel action has been taken, the list should update to reflect any changes until you refresh the page or restart the application.<br />
