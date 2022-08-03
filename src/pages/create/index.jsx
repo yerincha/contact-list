@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export default function Create({list, setList}) {
   const initialContact = {
-    id: list[list.length - 1].id + 1,
+    id: list.length ? list[list.length - 1].id + 1 : 1,
     firstName: '',
     lastName: '',
     phone: '',
@@ -43,7 +43,7 @@ export default function Create({list, setList}) {
     };
 
     setList([...list, formattedContact]);
-    alert('New Create has been Added!');
+    alert('New Contact has been Added!');
     // update id for the next contact creation
     initialContact.id += 1;
     setNewContact(initialContact);
